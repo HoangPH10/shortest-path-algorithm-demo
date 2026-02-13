@@ -234,9 +234,9 @@ def get_road_network_graph(start: Location, destination: Location, padding: floa
                 # Calculate distance between nodes
                 distance = euclidean_distance(node1, node2)
                 
-                # # Skip zero-distance edges
-                # if distance < 0.003:
-                #     continue
+                # Skip zero-distance edges
+                if distance < 0.001:
+                    continue
                 
                 # Determine if road is one-way
                 tags = element.get("tags", {})
