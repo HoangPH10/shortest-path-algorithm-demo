@@ -215,9 +215,9 @@ def get_road_network_graph(start: Location, destination: Location, padding: floa
         if element["type"] == "way":
             node_refs = element.get("nodes", [])
             
-            # Skip ways with insufficient nodes
-            if len(node_refs) < 2:
-                continue
+            # # Skip ways with insufficient nodes
+            # if len(node_refs) < 2:
+            #     continue
             
             # Create edges between consecutive nodes in the way
             for i in range(len(node_refs) - 1):
@@ -234,9 +234,9 @@ def get_road_network_graph(start: Location, destination: Location, padding: floa
                 # Calculate distance between nodes
                 distance = euclidean_distance(node1, node2)
                 
-                # Skip zero-distance edges
-                if distance < 0.003:
-                    continue
+                # # Skip zero-distance edges
+                # if distance < 0.003:
+                #     continue
                 
                 # Determine if road is one-way
                 tags = element.get("tags", {})
