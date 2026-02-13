@@ -235,7 +235,7 @@ def get_road_network_graph(start: Location, destination: Location, padding: floa
                 distance = euclidean_distance(node1, node2)
                 
                 # Skip zero-distance edges
-                if distance < 0.001:
+                if distance < 0.0001:
                     continue
                 
                 # Determine if road is one-way
