@@ -163,7 +163,7 @@ def get_road_network_graph(start: Location, destination: Location, padding: floa
     # Overpass QL query for all roads in bounding box
     # We query for ways with highway tag (roads) and request full geometry
     query = f"""
-    [out:json][timeout:60];
+    [out:json][timeout:300];
     (
       way["highway"]({min_lat},{min_lon},{max_lat},{max_lon});
     );
@@ -176,7 +176,7 @@ def get_road_network_graph(start: Location, destination: Location, padding: floa
         response = requests.post(
             overpass_server,
             data={"data": query},
-            timeout=60
+            timeout=300
         )
         response.raise_for_status()
         data = response.json()
